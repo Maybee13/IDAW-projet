@@ -95,32 +95,55 @@
         $vitamines_b12 = $_POST['vitamines_b12'];
     }
 
-    $id_food= "SELECT FOOD_ID FROM food WHERE label='${label}'";
+    //$id_food= "SELECT FOOD_ID FROM food WHERE label='${label}'";
 
     if($_POST['crud']=='ajout'){
         $sql = "INSERT INTO food (FOOD_LABEL,TYPE_) VALUES ('${label}','${type}')";
+        if(mysqli_query($conn, $sql)){
+            echo "Records added successfully.\n";
+        } 
+        else{
+            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn)."\n";
+        }
+        $result= mysqli_query($conn, "SELECT ID_FOOD FROM food WHERE FOOD_LABEL='${label}'");
+        $id_food_1 = mysqli_fetch_array($result,MYSQLI_NUM);
+        $id_food = $id_food_1[0];
         for($i=1;$i<27;$i++){
-            $nut=$array[$i];
+            $nut=$array[$i-1];
             $sql_nut = "INSERT INTO to_provide (FOOD_ID,NUTRIENT_ID,RATIO) VALUES ('${id_food}','${i}','${nut}')";
+            if(mysqli_query($conn, $sql_nut)){
+                echo "Records added successfully.";
+            } 
+            else{
+                echo "ERROR: Could not able to execute $sql_nut. " . mysqli_error($conn)."\n";
+            }
         }
     }
+    else{
+        $result= mysqli_query($conn, "SELECT ID_FOOD FROM food WHERE FOOD_LABEL='${label}'");
+        $id_food_1 = mysqli_fetch_array($result,MYSQLI_NUM);
+        $id_food = $id_food_1[0];
+    }
+
     if($_POST['crud']=='modif'){
         $sql = "UPDATE food SET FOOD_LABEL='${label}',TYPE_= '${type}' WHERE FOOD_LABEL='${label}'";
         for($i=1;$i<27;$i++){
-            $nut=$array[$i];
+            $nut=$array[$i-1];
             $sql_nut = "UPDATE to_provide SET FOOD_ID ='${id_food}',NUTRIENT_ID='${i}',RATIO='${nut}' WHERE FOOD_ID='${id_food}'";
         }
     }
-    if(mysqli_query($conn, $sql)){
+    /*if(mysqli_query($conn, $sql)){
         echo "Records added successfully.\n";
-    } else{
+    } 
+    else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn)."\n";
     }
     if(mysqli_query($conn, $sql_nut)){
         echo "Records added successfully.";
-    } else{
+    } 
+    else{
         echo "ERROR: Could not able to execute $sql_nut. " . mysqli_error($conn)."\n";
-    }
+    }*/
 
     
 ?>
