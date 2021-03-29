@@ -2,6 +2,10 @@ var next = 1;
 var active = 0;
 var crud;
 
+$(document).ready( function () {
+    $('#aliments').DataTable();
+} );
+
 function display(ctl) {
     var row = $(ctl).parents("tr");
     var cols = row.children("td");
@@ -90,7 +94,8 @@ function utilBuildTableRow(id) {
   return ret;
 }
 
-let backendurl = "http://localhost/IDAW-projet/backend/"
+//let backendurl = "http://localhost/IDAW-projet/backend/"
+let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/"
 
 function utilDelete(ctl) {
     crud="suppr";

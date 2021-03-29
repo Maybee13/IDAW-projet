@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='css/crud.css' type='text/css' media='screen' title='default' charset='utf-8' />
+    <!--<link rel='stylesheet' href='css/crud.css' type='text/css' media='screen' title='default' charset='utf-8' />-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <title>CRUD</title>
@@ -18,7 +20,7 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <table id="aliments" class="table table-bordered table-condensed table-striped">
+                <table id="aliments" class="display">
                     <thead>
                         <tr>
                             <th>Modifier</th>
