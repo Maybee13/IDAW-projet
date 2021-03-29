@@ -101,14 +101,14 @@
         $sql = "INSERT INTO food (FOOD_LABEL,TYPE_) VALUES ('${label}','${type}')";
         for($i=1;$i<=27;$i++){
             $nut=$array[$i];
-            $sql_nut = "INSERT INTO to_provide (FOOD_ID,NUTRIENT_ID,RATIO) VALUES ('${id_food}','${i}','${nut}'";
+            $sql_nut = "INSERT INTO to_provide (FOOD_ID,NUTRIENT_ID,RATIO) VALUES ('${id_food}','${i}','${nut}')";
         }
     }
     if($_POST['crud']=='modif'){
         $sql = "UPDATE food SET FOOD_LABEL='${label}',TYPE_='${type}' WHERE FOOD_LABEL='${label}'";
         for($i=1;$i<=27;$i++){
             $nut=$array[$i];
-            $sql_nut = "UPDATE to_provide SET FOOD_ID='${id_food}',NUTRIENT_ID='${i}',RATIO='${nut}' WHERE FOOD_ID='${id_food}";
+            $sql_nut = "UPDATE to_provide SET FOOD_ID='${id_food}',NUTRIENT_ID='${i}',RATIO='${nut}' WHERE FOOD_ID='${id_food}'";
         }
     }
     if(mysqli_query($conn, $sql)){
