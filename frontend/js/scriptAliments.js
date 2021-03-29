@@ -4,6 +4,7 @@ var crud;
 
 $(document).ready( function () {
     $('#aliments').DataTable();
+    
 } );
 
 function display(ctl) {
@@ -142,7 +143,7 @@ $("#formutil").submit(function(){
         '&vitamines_b6='+ document.getElementById('vitamines_b6').value+
         '&vitamines_b9='+ document.getElementById('vitamines_b9').value + 
         '&vitamines_b12='+ document.getElementById('vitamines_b12').value,
-        
+
         dataType : 'application/json'
     });
 });
