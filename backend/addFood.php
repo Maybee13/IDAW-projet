@@ -95,13 +95,13 @@
         $vitamines_b12 = $_POST['vitamines_b12'];
     }
 
-    $id_food= "SELECT FOOD_ID FROM food WHERE label='${label}'"
+    $id_food= "SELECT FOOD_ID FROM food WHERE label='${label}'";
 
     if($_POST['crud']=='ajout'){
         $sql = "INSERT INTO food (FOOD_LABEL,TYPE_) VALUES ('${label}','${type}')";
         for($i=1;$i<=27;$i++){
             $nut=$array[$i];
-            $sql_nut = "INSERT INTO to_provide (FOOD_ID,NUTRIENT_ID,RATIO) VALUES ('${id_food}','${i}','${nut}'"
+            $sql_nut = "INSERT INTO to_provide (FOOD_ID,NUTRIENT_ID,RATIO) VALUES ('${id_food}','${i}','${nut}'";
         }
     }
     if($_POST['crud']=='modif'){
