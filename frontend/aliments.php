@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel='stylesheet' href='css/crud.css' type='text/css' media='screen' title='default' charset='utf-8' />-->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <link rel='stylesheet' href='css/crud2.css' type='text/css' media='screen' title='default' charset='utf-8' />
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -19,8 +19,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-                <table id="aliments" class="display">
+            <div class="table-responsive">
+                <table id="aliments" class="table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Modifier</th>
@@ -56,15 +56,14 @@
                             <th>Vitamines B12 (µg/100g)</th>
                         </tr>
                     </thead>
+                    <tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">
                 <div class="panel panel-primary">
-                    <div class="panel-heading"> 
-                        Ajouter Aliment
-                    </div>
                     <div class="panel-body">
                         <form id="formutil" onsubmit="event.preventDefault();utilBuildTableRow();" autocomplete="off">
                             <div class="form-group">
