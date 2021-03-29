@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,9 +64,9 @@
                             }
                             $sql=mysqli_query($conn,"SELECT food.FOOD_LABEL,food.TYPE_, nutrient_intake.NUTRIENT_NAME, to_provide.RATIO FROM food JOIN to_provide ON food.ID_FOOD = to_provide.FOOD_ID JOIN nutrient_intake ON to_provide.NUTRIENT_ID = nutrient_intake.NUTRIENT_ID ORDER BY food.FOOD_LABEL ASC");
                             $result=mysqli_fetch_all($sql);
-                            print_r($result[1]);
                             for($i=0;$i<sizeof($result)-1;$i=$i+28){
-                                $constante=$result[($i*27)+1][0];
+                                $label=$result[$i][0];
+                                $type=$result[$i][1];
                                 echo "<tr><td><button type='button'
                                         onclick='display(this)';
                                         class='btn btn-default'
@@ -79,11 +79,12 @@
                                         data-id=' $i '>
                                         <i class='fas fa-trash' />
                                 </button>
-                                </td><tr>
-                                <td>\"$result[$i][0]\"</td>
-                                <td>\"$result[$i][1]\"</td>";
-                                for($j=$i;$j<$i+28;$j++){
-                                    echo"<td>\"$result[$j][3]\"</td>";
+                                </td>
+                                <td>$label</td>
+                                <td>$type</td>";
+                                for($j=$i;$j<$i+27;$j++){
+                                    $nutr=$result[$j][3];
+                                    echo"<td>$nutr</td>";
                                 }
                                 echo"</tr>";
                             }
