@@ -84,7 +84,7 @@ function utilBuildTableRow(id) {
     "<td>" + $("#vitamines_b6").val() + "</td>" +
     "<td>" + $("#vitamines_b9").val() + "</td>" +
     "<td>" + $("#vitamines_b12").val() + "</td>" +
-    "</td>" +
+    "</td>" 
   "</tr>"
 
   return ret;
@@ -109,7 +109,34 @@ $("#formutil").submit(function(){
         type : 'POST',
         data : 'label='+ document.getElementById('label').value +
         '&type='+ document.getElementById('type').value + 
-        "&crud="+crud,
+        '&crud='+crud +
+        '&energie='+ document.getElementById('energie').value + 
+        '&eau='+ document.getElementById('eau').value + 
+        '&proteines='+ document.getElementById('proteines').value + 
+        '&glucides='+ document.getElementById('glucides').value + 
+        '&lipides='+ document.getElementById('lipides').value + 
+        '&sucres='+ document.getElementById('sucres').value + 
+        '&glucose='+ document.getElementById('glucose').value + 
+        '&fibres_alimentaires='+ document.getElementById('fibres_alimentaires').value + 
+        '&cholesterol='+ document.getElementById('cholesterol').value + 
+        '&calcium='+ document.getElementById('calcium').value + 
+        '&fer='+ document.getElementById('fer').value + 
+        '&iode='+ document.getElementById('iode').value + 
+        '&magnesium='+ document.getElementById('magnesium').value + 
+        '&phosphore='+ document.getElementById('phosphore').value + 
+        '&potassium='+ document.getElementById('potassium').value + 
+        '&sodium='+ document.getElementById('sodium').value + 
+        '&vitamines_d='+ document.getElementById('vitamines_d').value + 
+        '&vitamines_e='+ document.getElementById('vitamines_e').value + 
+        '&vitamines_k1='+ document.getElementById('vitamines_k1').value + 
+        '&vitamines_c='+ document.getElementById('vitamines_c').value + 
+        '&vitamines_b1='+ document.getElementById('vitamines_b1').value + 
+        '&vitamines_b2='+ document.getElementById('vitamines_b2').value + 
+        '&vitamines_b3='+ document.getElementById('vitamines_b3').value + 
+        '&vitamines_b5='+ document.getElementById('vitamines_b5').value + 
+        '&vitamines_b6='+ document.getElementById('vitamines_b6').value+
+        '&vitamines_b9='+ document.getElementById('vitamines_b9').value + 
+        '&vitamines_b12='+ document.getElementById('vitamines_b12').value,
         dataType : 'application/json'
     });
 });
