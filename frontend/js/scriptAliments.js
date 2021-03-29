@@ -57,6 +57,33 @@ function utilBuildTableRow(id) {
     "</td>" +
     "<td>" + $("#label").val() + "</td>" +
     "<td>" + $("#type").val() + "</td>" +
+    "<td>" + $("#energie").val() + "</td>" +
+    "<td>" + $("#eau").val() + "</td>" +
+    "<td>" + $("#proteines").val() + "</td>" +
+    "<td>" + $("#glucides").val() + "</td>" +
+    "<td>" + $("#lipides").val() + "</td>" +
+    "<td>" + $("#sucres").val() + "</td>" +
+    "<td>" + $("#glucose").val() + "</td>" +
+    "<td>" + $("#fibres_alimentaires").val() + "</td>" +
+    "<td>" + $("#cholesterol").val() + "</td>" +
+    "<td>" + $("#calcium").val() + "</td>" +
+    "<td>" + $("#fer").val() + "</td>" +
+    "<td>" + $("#iode").val() + "</td>" +
+    "<td>" + $("#magnesium").val() + "</td>" +
+    "<td>" + $("#phosphore").val() + "</td>" +
+    "<td>" + $("#potassium").val() + "</td>" +
+    "<td>" + $("#sodium").val() + "</td>" +
+    "<td>" + $("#vitamines_d").val() + "</td>" +
+    "<td>" + $("#vitamines_e").val() + "</td>" +
+    "<td>" + $("#vitamines_k1").val() + "</td>" +
+    "<td>" + $("#vitamines_c").val() + "</td>" +
+    "<td>" + $("#vitamines_b1").val() + "</td>" +
+    "<td>" + $("#vitamines_b2").val() + "</td>" +
+    "<td>" + $("#vitamines_b3").val() + "</td>" +
+    "<td>" + $("#vitamines_b5").val() + "</td>" +
+    "<td>" + $("#vitamines_b6").val() + "</td>" +
+    "<td>" + $("#vitamines_b9").val() + "</td>" +
+    "<td>" + $("#vitamines_b12").val() + "</td>" +
     "</td>" +
   "</tr>"
 
