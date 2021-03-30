@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='css/crud2.css' type='text/css' media='screen' title='default' charset='utf-8' />
-    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/datatables.min.js"></script>
     <title>CRUD</title>
 </head>
 <body>
@@ -20,7 +20,7 @@
         </div>
         <div class="row">
             <div class="table-responsive">
-                <table id="aliments" class="table table-bordered" width="100%" cellspacing="0">
+                <table id="aliments" class="display table table-bordered" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Modifier</th>
@@ -64,7 +64,7 @@
                             }
                             $sql=mysqli_query($conn,"SELECT food.FOOD_LABEL,food.TYPE_, nutrient_intake.NUTRIENT_NAME, to_provide.RATIO FROM food JOIN to_provide ON food.ID_FOOD = to_provide.FOOD_ID JOIN nutrient_intake ON to_provide.NUTRIENT_ID = nutrient_intake.NUTRIENT_ID ORDER BY food.FOOD_LABEL ASC");
                             $result=mysqli_fetch_all($sql);
-                            for($i=0;$i<sizeof($result)-1;$i=$i+28){
+                            for($i=0;$i<sizeof($result)-27;$i=$i+28){
                                 $label=$result[$i][0];
                                 $type=$result[$i][1];
                                 echo "<tr><td><button type='button'

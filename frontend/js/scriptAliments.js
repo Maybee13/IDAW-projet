@@ -3,8 +3,7 @@ var active = 0;
 var crud;
 
 $(document).ready( function () {
-    $('#aliments').DataTable();
-
+    $('#aliments').DataTable({"autoWidth":true});
 } );
 
 function display(ctl) {
