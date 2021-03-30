@@ -14,7 +14,7 @@
     $numberOfNutrients = $i[0][0];
 
     $tableauAliments = array();
-    for($i=0;$i<sizeof($result)-$numberOfNutrients;$i=$i+$numberOfNutrients+1)
+    for($i=0;$i<140/*sizeof($result)*/-$numberOfNutrients;$i=$i+$numberOfNutrients+1)
     {
         $label=$result[$i][0];
         $type=$result[$i][1];
@@ -29,7 +29,7 @@
     }
     
     $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
-    $json = json_encode($tableauAliments);
+    $json = json_encode($tableauAliments[0]);
     echo "Renvoie le json :", $json;
 
 ?>
