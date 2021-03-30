@@ -117,6 +117,15 @@ function utilDelete(ctl) {
     });
 }
 
+$(document).ready(function(){
+    $.ajax({
+        url: backendurl + "aliments.php"
+      })
+        .done(function( data ) {
+          // data contient le résultat produit par le backend
+    });;
+});
+
 $("#formutil").submit(function(){   
     $.ajax({
         url : backendurl + 'addFood.php',
