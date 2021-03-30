@@ -2,8 +2,17 @@ var next = 1;
 var active = 0;
 var crud;
 
-$(document).ready( function () {
-    $('#aliments').DataTable({"autoWidth":true});
+$(document).ready(function() {
+    var table = $('#aliments').DataTable( {
+        scrollY:        "300px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         true,
+        columnDefs: [
+            { width: '20%', targets: 0 }
+        ],
+        fixedColumns: true
+    } );
 } );
 
 function display(ctl) {

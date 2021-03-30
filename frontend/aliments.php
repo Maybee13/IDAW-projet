@@ -20,7 +20,7 @@
         </div>
         <div class="row">
             <div class="table-responsive">
-                <table id="aliments" class="display table table-bordered" width="100%" cellspacing="0">
+                <table id="aliments" class="display table table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>Modifier</th>
