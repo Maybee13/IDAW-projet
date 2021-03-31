@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel='stylesheet' href='css/crud2.css' type='text/css' media='screen' title='default' charset='utf-8' />
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -12,7 +13,10 @@
     <title>CRUD</title>
 </head>
 <body>
-    <div class="container">
+    <?php
+    require_once('navbar.php');
+    ?>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
                 <h2>Aliments</h2>
@@ -20,7 +24,7 @@
         </div>
         <div class="row">
             <div class="table-responsive">
-                <table id="aliments" class="display table table-bordered" style="width:100%">
+                <table id="aliments" class="display table table-bordered nowrap" style="width:100%">
                     <thead>
                         <tr>
                             <th>Modifier</th>
@@ -69,13 +73,13 @@
                                 $type=$result[$i][1];
                                 echo "<tr><td><button type='button'
                                         onclick='display(this)';
-                                        class='btn btn-default'
+                                        class='btn'
                                         data-id=' $i '>
                                         <i class='fas fa-edit'/>
                                 </button><td>
                                 <button type='button'
                                         onclick='utilDelete(this);'
-                                        class='btn btn-default'
+                                        class='btn'
                                         data-id=' $i '>
                                         <i class='fas fa-trash' />
                                 </button>
@@ -224,6 +228,8 @@
             </div>
         </div>
     </div>
+    
+    
     <script src="js/scriptAliments.js"></script>
     </body>
   
