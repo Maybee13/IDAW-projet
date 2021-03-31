@@ -10,10 +10,15 @@
     $result = mysqli_fetch_all($sql);
     
     $sql2 = mysqli_query($conn,"SELECT DISTINCT(COUNT(NUTRIENT_ID)) FROM nutrient_intake");
-    $i = mysqli_fetch_all($sql2);
-    $numberOfNutrients = $i[0][0];
+    $n = mysqli_fetch_all($sql2);
+    $numberOfNutrients = $n[0][0];
+
+    $sql3 = mysqli_query($conn,"SELECT DISTINCT(COUNT(ID_FOOD)) FROM food");
+    $f = mysqli_fetch_all($sql3);
+    $numberOfFood = $f[0][0];
 
     $tableauAliments = array();
+    $k = 0;
     for($i=0;$i<sizeof($result)-$numberOfNutrients;$i=$i+$numberOfNutrients)
     {
         $label=$result[$i][0];
@@ -28,15 +33,17 @@
         for($j=$i;$j<$i+$numberOfNutrients;$j++)
         {
             $nutr = $result[$j][3];
-            $row[$j+2] = $nutr;
+            $row[] = $nutr;
+            //$row[$j+2] = $nutr;
         }
-        $tableauAliments[$i]=$row;
+        $tableauAliments[$k]=$row;
         $a=0;
         //echo "$tableauAliments[$i][$a]";
+        $k=$k+1;
     }
     
     $arr = array('f'=>array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5));
-    $json = json_encode($result[21]);
-    echo "Renvoie le json :", $json;
+    $json = json_encode($tableauAliments[1]);
+    echo "Renvoie le json :", $tableauAliments[$k-1][0];
 
 ?>
