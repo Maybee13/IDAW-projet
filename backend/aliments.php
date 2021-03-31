@@ -14,22 +14,29 @@
     $numberOfNutrients = $i[0][0];
 
     $tableauAliments = array();
-    for($i=0;$i<140/*sizeof($result)*/-$numberOfNutrients;$i=$i+$numberOfNutrients+1)
+    for($i=0;$i<sizeof($result)-$numberOfNutrients;$i=$i+$numberOfNutrients)
     {
         $label=$result[$i][0];
         $type=$result[$i][1];
         $tableauAliments[$i]=array();
-        $tableauAliments[$i][0]=$label;
-        $tableauAliments[$i][1]=$label;
+        $row = array();
+        $row[0]=$label;
+        $row[1]=$type;
+        //$tableauAliments[$i][0]=$label;
+        //$tableauAliments[$i][1]=$type;
+        //echo" -$row[0],$row[1]- ";
         for($j=$i;$j<$i+$numberOfNutrients;$j++)
         {
-            $nutr=$result[$j][3];
-            $tableauAliments[$i][$j]=$nutr;
+            $nutr = $result[$j][3];
+            $row[$j+2] = $nutr;
         }
+        $tableauAliments[$i]=$row;
+        $a=0;
+        //echo "$tableauAliments[$i][$a]";
     }
     
-    $arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
-    $json = json_encode($tableauAliments[0]);
+    $arr = array('f'=>array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5));
+    $json = json_encode($result[21]);
     echo "Renvoie le json :", $json;
 
 ?>
