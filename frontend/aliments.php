@@ -101,6 +101,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="panel panel-primary">
+                    <h2 >Ajouter un Aliment</h2>
                     <div class="panel-body">
                         <form id="formutil" onsubmit="event.preventDefault();utilBuildTableRow();" autocomplete="off">
                             <div class="form-group">
