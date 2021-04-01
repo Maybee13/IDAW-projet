@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -17,6 +21,9 @@
     <?php
     require_once('navbar.php');
     ?>
+    <div class="col-sm-6">
+        <h4>Bienvenue <?php echo $_SESSION['firstname']?>!</h4>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
