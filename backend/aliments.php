@@ -9,6 +9,7 @@
     }*/
     $sql=mysqli_query($conn,"SELECT food.FOOD_LABEL,food.TYPE_, nutrient_intake.NUTRIENT_NAME, to_provide.RATIO FROM food JOIN to_provide ON food.ID_FOOD = to_provide.FOOD_ID JOIN nutrient_intake ON to_provide.NUTRIENT_ID = nutrient_intake.NUTRIENT_ID ORDER BY food.FOOD_LABEL ASC");
     $result = mysqli_fetch_all($sql);
+
     
     $sql2 = mysqli_query($conn,"SELECT DISTINCT(COUNT(NUTRIENT_ID)) FROM nutrient_intake");
     $n = mysqli_fetch_all($sql2);
@@ -42,7 +43,7 @@
         //echo "$tableauAliments[$i][$a]";
         $k=$k+1;
     }
-    
+
     //$arr = array('f'=>array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5));
     $json = json_encode($tableauAliments);
     echo $json;
