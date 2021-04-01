@@ -29,8 +29,7 @@
         $label=$result[$i][0];
         $type=$result[$i][1];
         $row = array();
-        $row[0]=$label;
-        $row[1]=$type;
+        array_push($row,$label);array_push($row,$type);
         for($j=$i;$j<$i+$numberOfNutrients;$j++)
         {
             $nutr = $result[$j][3];
@@ -40,6 +39,6 @@
         $k++;
     }
 
-    $json = json_encode($tableauAliments);
+    $json = json_encode($tableauAliments,JSON_FORCE_OBJECT);
     echo $json;
 ?>
