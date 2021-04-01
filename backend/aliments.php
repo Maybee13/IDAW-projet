@@ -29,10 +29,7 @@
         $label=$result[$i][0];
         $type=$result[$i][1];
         $row = array();
-        array_push($row,$label);
-        array_push($row,$type);
-        //$row[0]=$label;
-        //$row[1]=$type;
+        array_push($row,$label);array_push($row,$type);
         for($j=$i;$j<$i+$numberOfNutrients;$j++)
         {
             $nutr = $result[$j][3];
