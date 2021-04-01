@@ -103,8 +103,8 @@ function utilBuildTableRow(id) {
   return ret;
 }
 
-let backendurl = "http://localhost/IDAW-projet/backend/"
-//let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/"
+//let backendurl = "http://localhost/IDAW-projet/backend/"
+let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/";
 
 function utilDelete(ctl) {
     crud="suppr";
