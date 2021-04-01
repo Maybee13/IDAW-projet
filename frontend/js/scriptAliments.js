@@ -19,8 +19,35 @@ function display(ctl) {
     var row = $(ctl).parents("tr");
     var cols = row.children("td");
     active = $($(cols[0]).children("button")[0]).data("id");
-    $("#label").val($(cols[1]).text());
-    $("#type").val($(cols[2]).text());
+    $("#label").val($(cols[2]).text());
+    $("#type").val($(cols[3]).text());
+    $("#energie").val($(cols[4]).text());
+    $("#eau").val($(cols[5]).text());
+    $("#proteines").val($(cols[6]).text());
+    $("#glucides").val($(cols[7]).text());
+    $("#lipides").val($(cols[8]).text());
+    $("#sucres").val($(cols[9]).text());
+    $("#glucose").val($(cols[10]).text());
+    $("#fibres_alimentaires").val($(cols[11]).text());
+    $("#cholesterol").val($(cols[12]).text());
+    $("#calcium").val($(cols[13]).text());
+    $("#fer").val($(cols[14]).text());
+    $("#iode").val($(cols[15]).text());
+    $("#magnesium").val($(cols[16]).text());
+    $("#phosphore").val($(cols[17]).text());
+    $("#potassium").val($(cols[18]).text());
+    $("#sodium").val($(cols[19]).text());
+    $("#vitamines_d").val($(cols[20]).text());
+    $("#vitamines_e").val($(cols[21]).text());
+    $("#vitamines_k1").val($(cols[22]).text());
+    $("#vitamines_c").val($(cols[23]).text());
+    $("#vitamines_b1").val($(cols[24]).text());
+    $("#vitamines_b2").val($(cols[25]).text());
+    $("#vitamines_b3").val($(cols[26]).text());
+    $("#vitamines_b5").val($(cols[27]).text());
+    $("#vitamines_b6").val($(cols[28]).text());
+    $("#vitamines_b9").val($(cols[29]).text());
+    $("#vitamines_b12").val($(cols[30]).text());
 }
 
 function update() {
@@ -103,8 +130,8 @@ function utilBuildTableRow(id) {
   return ret;
 }
 
-let backendurl = "http://localhost/IDAW-projet/backend/"
-//let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/";
+//let backendurl = "http://localhost/IDAW-projet/backend/"
+let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/";
 
 function utilDelete(ctl) {
     crud="suppr";
@@ -122,11 +149,11 @@ $(document).ready(function(){
         url: backendurl + "aliments.php",
         dataType : 'application/json'
       })
-        .done(function( data ) {
-          // data contient le résultat produit par le backend
-          $json = data;
+        .fail(function( data ) {
+            // data contient le résultat produit par le backend
     });;
 });
+
 
 $("#formutil").submit(function(){   
     $.ajax({
