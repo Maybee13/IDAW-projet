@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 01, 2021 at 12:58 PM
+-- Generation Time: Apr 01, 2021 at 01:12 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -3229,25 +3229,6 @@ INSERT INTO `food` (`ID_FOOD`, `FOOD_LABEL`, `TYPE_`) VALUES
 (3183, 'Cereales instantanees, poudre a reconstituer, des 6 mois', 'cereales et biscuits infantiles'),
 (3184, 'Biscuit pour bebe', 'cereales et biscuits infantiles'),
 (3185, 'Poudre cacaotee pour bebe', 'cereales et biscuits infantiles');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `imangermieux`
---
-
-DROP TABLE IF EXISTS `imangermieux`;
-CREATE TABLE IF NOT EXISTS `imangermieux` (
-  `COL 1` varchar(148) DEFAULT NULL,
-  `COL 2` varchar(118) DEFAULT NULL,
-  `COL 3` varchar(82) DEFAULT NULL,
-  `COL 4` varchar(93) DEFAULT NULL,
-  `COL 5` varchar(85) DEFAULT NULL,
-  `COL 6` varchar(62) DEFAULT NULL,
-  `COL 7` varchar(51) DEFAULT NULL,
-  `COL 8` varchar(38) DEFAULT NULL,
-  `COL 9` varchar(51) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
