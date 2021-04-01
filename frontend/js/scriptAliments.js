@@ -124,14 +124,18 @@ $(document).ready(function(){
       })
         .done(function( data ) {
           // data contient le résultat produit par le backend
+          console.log(data);
           $json = data;
     });;
 });
 
-$("#formutil").submit(function(){   
+
+$("#formutil").submit(function(){ 
+    var donnees = $("#formutil").serialize();  
     $.ajax({
         url : backendurl + 'addFood.php',
         type : 'POST',
+        //data : donnees,
         data : 'label='+ document.getElementById('label').value +
         '&type='+ document.getElementById('type').value + 
         '&crud='+crud +
@@ -159,7 +163,7 @@ $("#formutil").submit(function(){
         '&vitamines_b2='+ document.getElementById('vitamines_b2').value + 
         '&vitamines_b3='+ document.getElementById('vitamines_b3').value + 
         '&vitamines_b5='+ document.getElementById('vitamines_b5').value + 
-        '&vitamines_b6='+ document.getElementById('vitamines_b6').value+
+        '&vitamines_b6='+ document.getElementById('vitamines_b6').value +
         '&vitamines_b9='+ document.getElementById('vitamines_b9').value + 
         '&vitamines_b12='+ document.getElementById('vitamines_b12').value,
 
