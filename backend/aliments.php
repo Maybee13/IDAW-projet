@@ -24,7 +24,7 @@
 
     $tableauAliments = array();
     $k = 0;
-    for($i=0;$i<sizeof($result)-$numberOfNutrients;$i=$i+$numberOfNutrients)
+    for($i=0;$i<sizeof($result)-$numberOfNutrients+1;$i=$i+$numberOfNutrients)
     {
         $label=$result[$i][0];
         $type=$result[$i][1];
