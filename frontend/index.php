@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="container">
-        <form id="login_form" action="config.php" method="POST">
+        <form id="login_form" action="connected.php" method="POST">
             <table>
                 <tr>
                     <th>Login :</th>
