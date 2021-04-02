@@ -51,7 +51,7 @@ function display(ctl) {
 }
 
 function update() {
-    if ($("#updateButton").text() == "Modifier") {
+    if ($("#updateMealButton").text() == "Modifier") {
         crud = "modif";
         updateTable(active);
     }
