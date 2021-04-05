@@ -106,7 +106,8 @@
                                 <input type="reset"  class="btn btn-primary" onclick="updateMelas();" value="Reset">
                             </div>
                         </form>
-
+                            <label for="gsearch">Search Google:</label>
+                            <input type="search" id="gsearch" name="gsearch">
                     </div>
                 </div>
             </div>
