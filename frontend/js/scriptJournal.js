@@ -119,7 +119,7 @@ $("#formutil").submit(function(){
         '&date='+ document.getElementById('date').value + 
         '&crud='+ crud +
         +'&login ='+ $user
-        +'&ibgredients='+ingredients,
+        +'&ingredients='+ingredients,
         dataType : 'application/json'
     });
 });

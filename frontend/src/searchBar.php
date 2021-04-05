@@ -18,13 +18,12 @@
       printf("Erreur lors du chargement du jeu de caractères utf8 : %s\n", mysqli_error($link));
       exit();
   }
-    $sql = mysqli_query($conn,"SELECT food.FOOD_LABEL FROM food");
+    $sql = mysqli_query($conn,"SELECT food.FOOD_LABEL, food.ID_FOOD FROM food");
     $result = mysqli_fetch_all($sql);
     $foods  = array();
     for($i=0;$i<sizeof($result);$i++){
       array_push($foods,$result[$i][0]);
     }
-    $php_variable = ["slip","chaussettes"]; 
     ?>
 
     <script type =  "text/javascript"> js_variable_name = <?php echo json_encode($foods); ?>;</script>
