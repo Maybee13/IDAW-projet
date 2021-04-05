@@ -74,6 +74,10 @@
                             if($conn == false){
                                 die("ERROR: Could not connect. " . mysqli_connect_error());
                             }
+                            if (!mysqli_set_charset($conn, "utf8")) {
+                                printf("Erreur lors du chargement du jeu de caractères utf8 : %s\n", mysqli_error($link));
+                                exit();
+                            }
                             $sql=mysqli_query($conn,"SELECT food.FOOD_LABEL,food.TYPE_, nutrient_intake.NUTRIENT_NAME, to_provide.RATIO FROM food JOIN to_provide ON food.ID_FOOD = to_provide.FOOD_ID JOIN nutrient_intake ON to_provide.NUTRIENT_ID = nutrient_intake.NUTRIENT_ID ORDER BY food.FOOD_LABEL ASC");
                             $result=mysqli_fetch_all($sql);
                             

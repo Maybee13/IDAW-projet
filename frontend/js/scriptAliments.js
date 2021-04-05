@@ -158,7 +158,8 @@ $(document).ready(function(){
         .done(function(data) {
             // data contient le résultat produit par le backend
             console.log("salut done");
-            $json = data;
+            json = data;
+            console.log(data);
   });;
 });
 
