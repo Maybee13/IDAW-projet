@@ -94,7 +94,7 @@ $(document).ready(function(){
     $.ajax({
         url: backendurl + "journal.php",
         method: 'POST',
-        dataType : 'json'
+        dataType : 'application/json'
       })
         .fail(function(data) {
           // data contient le résultat produit par le backend
@@ -116,9 +116,10 @@ $("#formutil").submit(function(){
         type : 'POST',
         //data : donnees,
         data : 'label='+ document.getElementById('label').value +
-        '&type='+ document.getElementById('date').value + 
-        '&crud='+crud +
-        +'&login ='+ $user,
+        '&date='+ document.getElementById('date').value + 
+        '&crud='+ crud +
+        +'&login ='+ $user
+        +'&ibgredients='+ingredients,
         dataType : 'application/json'
     });
 });

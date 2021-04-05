@@ -82,12 +82,16 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="panel panel-primary">
-                    <h2 >Ajouter un repas</h2>
+                    <h2>Ajouter un repas</h2>
                     <div class="panel-body">
                         <form id="formutil" onsubmit="event.preventDefault();utilBuildTableRow();" autocomplete="on">
                             <div class="form-group">
                                 <label for="label"> Repas </label>
-                                <input type="text" class="form-control" id="label" placeholder="ex : Dîner avec Mémé" required/>
+                                <input type="text" class="form-control" id="label" placeholder="ex : Gros grec bien sale" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="hour"> C'était vers quelle heure ? </label>
+                                <input type="time" class="form-control"  id="hour" required/>
                             </div>
                             <div class="form-group">
                                 <label for="date"> Date </label>
@@ -96,6 +100,8 @@
                             <div class="col-xs-12">
                                 <input type="submit" id="updateMealsButton" class="btn btn-primary" onclick="updateMelas();" value="Ajouter">
                             </div>
+
+                            <br/>
                             <div class="col-xs-12">
                                 <input type="reset"  class="btn btn-primary" onclick="updateMelas();" value="Reset">
                             </div>
