@@ -130,8 +130,8 @@ function utilBuildTableRow(id) {
   return ret;
 }
 
-let backendurl = "http://localhost/IDAW-projet/backend/"
-//let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/";
+//let backendurl = "http://localhost/IDAW-projet/backend/"
+let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/";
 
 function utilDelete(ctl) {
     crud ="suppr";
@@ -143,25 +143,6 @@ function utilDelete(ctl) {
         dataType : 'application/json'
     });
 }
-
-$(document).ready(function(){
-    $.ajax({
-        url: backendurl + "aliments.php",
-        method: 'POST',
-        dataType : 'json'
-    })
-        .fail(function(data) {
-          // data contient le résultat produit par le backend
-          console.log("salut fail");
-          $json = data;
-    })
-        .done(function(data) {
-            // data contient le résultat produit par le backend
-            console.log("salut done");
-            json = data;
-            console.log(data);
-  });;
-});
 
 
 $("#formutil").submit(function(){ 

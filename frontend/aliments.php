@@ -69,45 +69,7 @@
                         </tr>
                     </thead>
                     <tbody id="TableAliments">
-                        <?php
-                            $conn= mysqli_connect("localhost", "root", "", "imangermieux");
-                            if($conn == false){
-                                die("ERROR: Could not connect. " . mysqli_connect_error());
-                            }
-                            if (!mysqli_set_charset($conn, "utf8")) {
-                                printf("Erreur lors du chargement du jeu de caractères utf8 : %s\n", mysqli_error($link));
-                                exit();
-                            }
-                            $sql=mysqli_query($conn,"SELECT food.FOOD_LABEL,food.TYPE_, nutrient_intake.NUTRIENT_NAME, to_provide.RATIO FROM food JOIN to_provide ON food.ID_FOOD = to_provide.FOOD_ID JOIN nutrient_intake ON to_provide.NUTRIENT_ID = nutrient_intake.NUTRIENT_ID ORDER BY food.FOOD_LABEL ASC");
-                            $result=mysqli_fetch_all($sql);
-                            
-                            for($i=0;$i<sizeof($result)-27;$i=$i+28){
-                                $label=$result[$i][0];
-                                $type=$result[$i][1];
-                                echo "<tr><td><button type='button'
-                                        onclick='display(this)';
-                                        class='btn'
-                                        data-id=' $i '>
-                                        <i class='fas fa-edit'/>
-                                </button><td>
-                                <button type='button'
-                                        onclick='utilDelete(this);'
-                                        class='btn'
-                                        data-id=' $i '>
-                                        <i class='fas fa-trash' />
-                                </button>
-                                </td>
-                                <td>$label</td>
-                                <td>$type</td>";
-                                for($j=$i;$j<$i+27;$j++){
-                                    $nutr=$result[$j][3];
-                                    echo"<td>$nutr</td>";
-                                }
-                                echo"</tr>";
-                            }
-
-                            
-                        ?>
+                        
                         
                     </tbody>
                 </table>
@@ -247,6 +209,30 @@
     </body>
   
 </html>
+<script>
+     fetch(backendurl + "aliments.php").then( 
+                    res => res.json()
+                )
+                .then(res=> {
+                    let texte=""
+                    for(let i=0;i<res.length()-1;i=i++){
+                        let label=res[i][0]
+                        let type=res[i][1]
+                        texte+="<tr><td><button type='button' onclick='display(this)' class='btn' data-id='"+ i +"
+                            '><i class='fas fa-edit'/></button><td><button type='button'onclick='utilDelete(this);'class='btn'data-id='"+ $i +"
+                            '><i class='fas fa-trash' /></button></td><td>"+label+"</td><td>"+type+"</td>"
+                        for(let j=2;j<29;j++){
+                            let nutr=res[i][j]
+                            texte=texte+"<td>"+nutr+"</td>"
+                        }
+                        texte+="</tr>"
+                    }
+                    console.log(texte)
+                    $( ".TableAliments" ).append(texte);
+                   
+                })
+    
+</script>
 
 <!--for($i=0;$i<sizeof($result)-27;$i=$i+28){
                                 $label=$result[$i][0];

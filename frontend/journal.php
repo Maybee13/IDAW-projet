@@ -28,10 +28,11 @@
     ?>
     <div class="col-sm-6">
     <?php 
-        //$user = $_SESSION['mail'];
-        $user  = 'pierre.marque@etu.imt-lille-douai.fr';
+        $user = $_SESSION['firstname'];
+        $login = $_SESSION['login'];
+        //$user  = 'pierre.marque@etu.imt-lille-douai.fr';
     ?>
-        <h4>Bienvenue <?php echo "User anonyme"/*$user*/?>!</h4>
+        <h4>Bienvenue <?php echo $user?>!</h4>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -56,7 +57,7 @@
                             if($conn == false){
                                 die("ERROR: Could not connect. " . mysqli_connect_error());
                             }
-                            $sql = mysqli_query($conn,"SELECT meal.MEAL_LABEL, meal.DATE FROM meal WHERE meal.LOGIN = 'pierre.marque@etu.imt-lille-douai.fr'");
+                            $sql = mysqli_query($conn,"SELECT meal.MEAL_LABEL, meal.DATE FROM meal WHERE meal.LOGIN = '${login}'");
                             $result = mysqli_fetch_all($sql);
                             for($i=0;$i<sizeof($result);$i++){
                                 $mealLabel = $result[$i][0];
