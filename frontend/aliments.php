@@ -210,25 +210,6 @@
   
 </html>
 <script>
-    // fetch(backendurl + "aliments.php")
-    // .then( res => res.json())
-    // .then(res=> {
-    //     let texte=""
-    //     for(let i=0;i<Object.keys(res).length-1;i++){
-    //         let label=res[i][0]
-    //         let type=res[i][1]
-    //         texte = texte + "<tr><td><button type='button' onclick='display(this)' class='btn' data-id='"+ i +"'><i class='fas fa-edit'/></button><td><button type='button'onclick='utilDelete(this);'class='btn'data-id='"+ i +"'><i class='fas fa-trash' /></button></td><td>"+label+"</td><td>"+type+"</td>"
-    //         for(let j=2;j<29;j++){
-    //             let nutr=res[i][j]
-    //             texte=texte+"<td>"+nutr+"</td>"
-    //         }
-    //         texte+="</tr>"
-    //     }
-    //     $( "#TableAliments" ).append(texte);
-        
-    // })
-
-
     $.ajax({
         url: backendurl + "aliments.php",
         }).done(function(res) {

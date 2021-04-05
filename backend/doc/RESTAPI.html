@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>iMangerMieux API</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="restapi.css">
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1 class="title">iMangerMieux API</h1>
+    <br>
+    <br>
+
+    <h3>Authors : DIDON Maya & MARQUE Pierre</h3>
+    <h3>2021-04-06</h3>
+    <br>
+    <br>
+
+	<h2>Prefix of all Root Endpoints</h2>
+	<p>The API is always prefixed by : </p>
+	<p>http://localhost/IDAW-projet/backend</p>
+
+    <br>
+    <h2>Authentification</h2>
+    <p>No authentification.</p>
+    <br>
+
+    <h2>Parameters</h2>
+    <p>All parameters are optional and without them the API will just return all aliments, users or consumptions in ascending order from their ID. Parameters are passed in as a query string and can be chained together.</p>
+    <br>
+
+	<h2>Possible actions for users of the API</h2>
+    <p>Several filters can be applied using url paramaters. Available options are listed below.  </p>
+    <h3>Aliments</h3>
+
+	<table class="table">
+   <caption>Possible actions with aliments</caption>
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>READ</td>
+            <td>aliments.php</td>
+            <td>Returns the list of aliments ordered alphabetically.</td>
+        </tr>
+        <tr>
+            <td>CREATE</td>
+            <td>addFood.php</td>
+            <td>Create an aliment. Users must provide all of the nutritional fields</td>
+        </tr>
+        <tr>
+            <td>UPDATE</td>
+            <td>addFood.php</td>
+            <td>Update an aliment. Users must provide all of the nutritional fields</td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>suppFood.php</td>
+            <td>Delete aliment</td>
+        </tr>
+    </tbody>
+</table>
+
+    <br>
+
+    <h3>Meals</h3>
+    <p>The API's main role concerning the meals is to record the meals taken throughout the usage of the site.</p>
+   
+
+    <table class="table">
+   <caption>Possible actions with meals</caption>
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>READ</td>
+            <td>journal.php</td>
+            <td>Returns the list of all meals.</td>
+        </tr>
+        <tr>
+            <td>CREATE</td>
+            <td>addMeal.php</td>
+            <td>Create a meal. Users must provide all of the indicated fields.</td>
+        </tr>
+        <tr>
+            <td>UPDATE</td>
+            <td>addMeal.php</td>
+            <td>Update a meal. Users must provide all of the indicated fields.</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
