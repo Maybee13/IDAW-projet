@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <!--<link href="css/style.css" rel="stylesheet">-->
     <link rel='stylesheet' href='css/crud2.css' type='text/css' media='screen' title='default' charset='utf-8' />
     <script src="js/jquery-1.11.0.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -41,6 +41,7 @@
                     <thead>
                         <tr>
                             <th>Supprimer</th>
+                            <th>Modifier</th>
                             <th>Nom du repas</th>
                             <th>Date/heure</th>
                         </tr>
@@ -51,14 +52,19 @@
                             if($conn == false){
                                 die("ERROR: Could not connect. " . mysqli_connect_error());
                             }
-                            $sql = mysqli_query($conn,"SELECT meal.MEAL_LABEL, meal.DATE FROM meal WHERE meal.LOGIN = '${user}'");
+                            $sql = mysqli_query($conn,"SELECT meal.MEAL_LABEL, meal.DATE FROM meal WHERE meal.LOGIN = 'pierre.marque@etu.imt-lille-douai.fr'");
                             $result = mysqli_fetch_all($sql);
-                            for($i=0;$i<sizeof($result)-1;$i++){
+                            for($i=0;$i<sizeof($result);$i++){
                                 $mealLabel = $result[$i][0];
                                 $mealDate = $result[$i][1];
-                                echo"<tr><td>
+                                echo "<tr><td><button type='button'
+                                        onclick='display(this)';
+                                        class='btn'
+                                        data-id=' $i '>
+                                        <i class='fas fa-edit'/>
+                                </button><td>
                                 <button type='button'
-                                        onclick='mealDelete(this);'
+                                        onclick='utilDelete(this);'
                                         class='btn'
                                         data-id=' $i '>
                                         <i class='fas fa-trash' />
@@ -87,14 +93,6 @@
                                 <label for="date"> Date </label>
                                 <input type="date" class="form-control"  id="date" required/>
                             </div>
-                            <div class="form-group">
-                                <label for="alimentsSelectionnes"> Aliments sélectionnés</label>
-                            </div>
-                            <div class="form-group">
-                                <label for="selectMeals"> Sélectionner des aliments </label>
-                                <select id = "selectMeals" multiple>
-                                    <option value="" label = ""></option>
-                            </div>
                             <div class="col-xs-12">
                                 <input type="submit" id="updateMealsButton" class="btn btn-primary" onclick="updateMelas();" value="Ajouter">
                             </div>
@@ -102,55 +100,6 @@
                                 <input type="reset"  class="btn btn-primary" onclick="updateMelas();" value="Reset">
                             </div>
                         </form>
-
-                        <hr>
-                        <div class="employee-form">
-                <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
-                    <div>
-                        <label>Nom complet*</label><label class="validation-error hide" id="fullNameValidationError">Champ obligatoire</label>
-                        <input type="text" name="fullName" id="fullName">
-                    </div>
-                    <div>
-                        <label>Adresse mail</label>
-                        <input type="email" name="email" id="email">
-                    </div>
-                    <div>
-                        <label>Un commentaire ?</label>
-                        <input type="text" name="comment" id="comment">
-                    </div>
-                    <div>
-                        <label>Date de naissance</label>
-                        <input type="date" name="dob" id="dob">
-                    </div>
-                    <div>
-                        <label>Cochez si actuellement en PLS</label>
-                        <input type="checkbox" name = "choix" id = "choix">
-                    </div>
-                    <div  class="form-action-buttons">
-                        <input type="submit" value="Submit">
-                    </div>
-                </form>
-		</div>
-		<br/>
-		<div class = "employees-table">
-                <table class="list" id="employeeList">
-                    <thead>
-                        <tr>
-                        <tr>
-                            <th>Nom complet</th>
-                            <th>Adresse mail</th>
-                            <th>Un commentaire ?</th>
-                            <th>Date de naissance</th>
-                            <th>Actions</th>
-                        </tr>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-        </div>
-                            <script src="js/scriptcrud.js"></script>
 
                     </div>
                 </div>

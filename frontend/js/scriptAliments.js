@@ -3,7 +3,7 @@ var active = 0;
 var crud;
 
 $(document).ready(function() {
-    var table = $('#aliments').DataTable( {
+    var table = $('#repas').DataTable( {
         scrollY:        "300px",
         scrollX:        true,
         scrollCollapse: true,
@@ -63,8 +63,8 @@ function update() {
 }
 
 function ajoutTable() {
-    if ($("#aliments tbody").length == 0) {
-        $("#aliments").append("<tbody></tbody>");
+    if ($("#repas tbody").length == 0) {
+        $("#repas").append("<tbody></tbody>");
     }
     $("#aliments tbody").append(utilBuildTableRow(next));
     next += 1;
