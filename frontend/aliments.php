@@ -210,50 +210,40 @@
   
 </html>
 <script>
-     fetch(backendurl + "aliments.php").then( 
-                    res => res.json()
-                )
-                .then(res=> {
-                    let texte=""
-                    for(let i=0;i<res.length()-1;i=i++){
-                        let label=res[i][0]
-                        let type=res[i][1]
-                        texte+="<tr><td><button type='button' onclick='display(this)' class='btn' data-id='"+ i +"
-                            '><i class='fas fa-edit'/></button><td><button type='button'onclick='utilDelete(this);'class='btn'data-id='"+ $i +"
-                            '><i class='fas fa-trash' /></button></td><td>"+label+"</td><td>"+type+"</td>"
-                        for(let j=2;j<29;j++){
-                            let nutr=res[i][j]
-                            texte=texte+"<td>"+nutr+"</td>"
-                        }
-                        texte+="</tr>"
-                    }
-                    console.log(texte)
-                    $( ".TableAliments" ).append(texte);
-                   
-                })
-    
-</script>
+    // fetch(backendurl + "aliments.php")
+    // .then( res => res.json())
+    // .then(res=> {
+    //     let texte=""
+    //     for(let i=0;i<Object.keys(res).length-1;i++){
+    //         let label=res[i][0]
+    //         let type=res[i][1]
+    //         texte = texte + "<tr><td><button type='button' onclick='display(this)' class='btn' data-id='"+ i +"'><i class='fas fa-edit'/></button><td><button type='button'onclick='utilDelete(this);'class='btn'data-id='"+ i +"'><i class='fas fa-trash' /></button></td><td>"+label+"</td><td>"+type+"</td>"
+    //         for(let j=2;j<29;j++){
+    //             let nutr=res[i][j]
+    //             texte=texte+"<td>"+nutr+"</td>"
+    //         }
+    //         texte+="</tr>"
+    //     }
+    //     $( "#TableAliments" ).append(texte);
+        
+    // })
 
-<!--for($i=0;$i<sizeof($result)-27;$i=$i+28){
-                                $label=$result[$i][0];
-                                $type=$result[$i][1];
-                                echo "<tr><td><button type='button'
-                                        onclick='display(this)';
-                                        class='btn'
-                                        data-id=' $i '>
-                                        <i class='fas fa-edit'/>
-                                </button><td>
-                                <button type='button'
-                                        onclick='utilDelete(this);'
-                                        class='btn'
-                                        data-id=' $i '>
-                                        <i class='fas fa-trash' />
-                                </button>
-                                </td>
-                                <td>$label</td>
-                                <td>$type</td>";
-                                for($j=$i;$j<$i+27;$j++){
-                                    $nutr=$result[$j][3];
-                                    echo"<td>$nutr</td>";
-                                }
-                                echo"</tr>";
+
+    $.ajax({
+        url: backendurl + "aliments.php",
+        }).done(function(res) {
+            let texte=""
+            for(let i=0;i<Object.keys(res).length-1;i++){
+                let label=res[i][0]
+                let type=res[i][1]
+                texte = texte + "<tr><td><button type='button' onclick='display(this)' class='btn' data-id='"+ i +"'><i class='fas fa-edit'/></button><td><button type='button'onclick='utilDelete(this);'class='btn'data-id='"+ i +"'><i class='fas fa-trash' /></button></td><td>"+label+"</td><td>"+type+"</td>"
+                for(let j=2;j<29;j++){
+                    let nutr=res[i][j]
+                    texte=texte+"<td>"+nutr+"</td>"
+                }
+                texte+="</tr>"
+            }
+            $( "#TableAliments" ).append(texte);
+            }
+        );
+</script>
