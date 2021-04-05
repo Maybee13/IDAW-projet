@@ -68,7 +68,7 @@
                             <th>Vitamines B12 (µg/100g)</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="TableAliments">
                         <?php
                             $conn= mysqli_connect("localhost", "root", "", "imangermieux");
                             if($conn == false){
@@ -101,6 +101,8 @@
                                 }
                                 echo"</tr>";
                             }
+
+                            
                         ?>
                         
                     </tbody>
@@ -241,3 +243,27 @@
     </body>
   
 </html>
+
+<!--for($i=0;$i<sizeof($result)-27;$i=$i+28){
+                                $label=$result[$i][0];
+                                $type=$result[$i][1];
+                                echo "<tr><td><button type='button'
+                                        onclick='display(this)';
+                                        class='btn'
+                                        data-id=' $i '>
+                                        <i class='fas fa-edit'/>
+                                </button><td>
+                                <button type='button'
+                                        onclick='utilDelete(this);'
+                                        class='btn'
+                                        data-id=' $i '>
+                                        <i class='fas fa-trash' />
+                                </button>
+                                </td>
+                                <td>$label</td>
+                                <td>$type</td>";
+                                for($j=$i;$j<$i+27;$j++){
+                                    $nutr=$result[$j][3];
+                                    echo"<td>$nutr</td>";
+                                }
+                                echo"</tr>";

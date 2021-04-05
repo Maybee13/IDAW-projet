@@ -1,6 +1,7 @@
 <?php
       header('Content-Type: application/json');
-    $conn= mysqli_connect("localhost", "root", "", "imangermieux");
+      $config = include('config.php');
+      $conn= mysqli_connect($config['database'], $config['username'], $config['password'], $config['dbname']);
     if($conn == false){
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }

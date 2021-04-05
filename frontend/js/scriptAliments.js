@@ -144,18 +144,6 @@ function utilDelete(ctl) {
     });
 }
 
-$(document).ready(function(){
-    $.ajax({
-        url: backendurl + "aliments.php",
-        dataType : 'application/json'
-      })
-        .done(function( data ) {
-          // data contient le résultat produit par le backend
-          console.log(data);
-          $json = data;
-    });;
-});
-
 
 $("#formutil").submit(function(){ 
     var donnees = $("#formutil").serialize();  
