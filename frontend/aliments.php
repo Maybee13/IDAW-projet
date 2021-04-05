@@ -228,7 +228,7 @@
                         texte+="</tr>"
                     }
                     console.log(texte)
-                    $( "#TableAliments" ).append(texte);
+                    $(#"TableAliments" ).append(texte);
                    
                 })
     
@@ -256,4 +256,4 @@
                                     $nutr=$result[$j][3];
                                     echo"<td>$nutr</td>";
                                 }
-                                echo"</tr>";
+                                echo"</tr>";-->
