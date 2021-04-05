@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/datatables.min.js"></script>
     <script type = "text/javascript" src="js/scriptJournal.js"></script> 
-
+    
     <link rel="stylesheet" href="css/searchBar.css">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -100,7 +100,6 @@
                             </div>
                             <div class="form-group">
                                 <label for="date"> Choisis tes aliments </label>
-                                <?php require_once('src/searchBar.php');?>
                             </div>
                             <div class="col-xs-12">
                                 <input type="submit" id="updateMealsButton" class="btn btn-primary" onclick="updateMelas();" value="Ajouter">
