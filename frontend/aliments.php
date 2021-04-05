@@ -228,7 +228,7 @@
                         texte+="</tr>"
                     }
                     console.log(texte)
-                    $( ".TableAliments" ).append(texte);
+                    $( "#TableAliments" ).append(texte);
                    
                 })
     
