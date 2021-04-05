@@ -12,6 +12,7 @@ $(document).ready(function() {
             { width: '20%', targets: 0 }
         ],
         fixedColumns: true
+        
     } );
 } );
 
@@ -139,7 +140,7 @@ function utilDelete(ctl) {
     $.ajax({
         url : backendurl + 'suppFood.php',
         type : 'POST',
-        data : 'label='+ document.getElementById('label').value,
+        data : 'label='+ document.getElementById('label').value + '&type='+document.getElementById('type').value+ '&crud='+document.getElementById('crud').value,
         dataType : 'application/json'
     });
 }
