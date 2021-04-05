@@ -48,7 +48,7 @@
                             <th>Supprimer</th>
                             <th>Modifier</th>
                             <th>Nom du repas</th>
-                            <th>Date/heure</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,21 +95,16 @@
                                 <input type="text" class="form-control" id="label" placeholder="ex : Gros grec bien sale" required/>
                             </div>
                             <div class="form-group">
-                                <label for="hour"> C'était vers quelle heure ? </label>
-                                <input type="time" class="form-control"  id="hour" required/>
-                            </div>
-                            <div class="form-group">
-                                <label for="date"> Date </label>
+                                <label for="date"> Et c'était quand ce bon repas ? </label>
                                 <input type="date" class="form-control"  id="date" required/>
                             </div>
                             <div class="form-group">
-                                <label for="date"> Choisir Aliments </label>
+                                <label for="date"> Choisis tes aliments </label>
                                 <?php require_once('src/searchBar.php');?>
                             </div>
                             <div class="col-xs-12">
                                 <input type="submit" id="updateMealsButton" class="btn btn-primary" onclick="updateMelas();" value="Ajouter">
                             </div>
-
                             <br/>
                             <div class="col-xs-12">
                                 <input type="reset"  class="btn btn-primary" onclick="updateMelas();" value="Reset">

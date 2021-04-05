@@ -5,17 +5,17 @@
         die("ERROR: Could not connect. " . mysqli_connect_error());
     }
 
-    $array = array('energie','eau','proteines','glucides','lipides','sucres','glucose','fibres_alimentaires','cholesterol','calcium','fer','iode','magnesium','phosphore','potassium','sodium','vitamines_d','vitamines_e','vitamines_k1','vitamines_c','vitamines_b1','vitamines_b2','vitamines_b3','vitamines_b5','vitamines_b6','vitamines_b9','vitamines_b12');
+    //$array = array('energie','eau','proteines','glucides','lipides','sucres','glucose','fibres_alimentaires','cholesterol','calcium','fer','iode','magnesium','phosphore','potassium','sodium','vitamines_d','vitamines_e','vitamines_k1','vitamines_c','vitamines_b1','vitamines_b2','vitamines_b3','vitamines_b5','vitamines_b6','vitamines_b9','vitamines_b12');
 
     if(isset($_POST['label'] )){
         $label = $_POST['label'];
     }
-    if(isset($_POST['type'] )){
-        $type = $_POST['type'];
+    if(isset($_POST['date'] )){
+        $type = $_POST['date'];
     }
 
     if($_POST['crud']=='ajout'){
-        $sql = "INSERT INTO food (FOOD_LABEL,TYPE_) VALUES ('${label}','${type}')";
+        $sql = "INSERT INTO meal (MEAL_LABEL,DATE) VALUES ('${label}','${date}')";
         if(mysqli_query($conn, $sql)){
             echo "Records added successfully.\n";
         } 

@@ -198,7 +198,7 @@
                                 <input type="text" class="form-control" id="vitamines_b12" />
                             </div>
                             <div class="col-xs-12">
-                                <input type="submit" id="updateButton" class="btn btn-primary" onclick="update();" value="Ajouter">
+                                <input type="submit" id="updateButton" class="btn btn-primary" onclick="update();" value="Ajouter"/>
                             </div>
                         </form>
                     </div>
@@ -206,7 +206,7 @@
             </div>
         </div>
     </div>
-    </body>
+</body>
   
 </html>
 <script>
