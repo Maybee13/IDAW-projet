@@ -149,7 +149,7 @@ $(document).ready(function(){
         url: backendurl + "aliments.php",
         method: 'POST',
         dataType : 'json'
-      })
+    })
         .fail(function(data) {
           // data contient le résultat produit par le backend
           console.log("salut fail");
