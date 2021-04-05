@@ -3,7 +3,7 @@ var active = 0;
 var crud;
 
 $(document).ready(function() {
-    var table = $('#aliments').DataTable( {
+    var table = $('#repas').DataTable( {
         scrollY:        "300px",
         scrollX:        true,
         scrollCollapse: true,
@@ -63,8 +63,8 @@ function update() {
 }
 
 function ajoutTable() {
-    if ($("#aliments tbody").length == 0) {
-        $("#aliments").append("<tbody></tbody>");
+    if ($("#repas tbody").length == 0) {
+        $("#repas").append("<tbody></tbody>");
     }
     $("#aliments tbody").append(utilBuildTableRow(next));
     next += 1;
@@ -130,11 +130,11 @@ function utilBuildTableRow(id) {
   return ret;
 }
 
-//let backendurl = "http://localhost/IDAW-projet/backend/"
-let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/";
+let backendurl = "http://localhost/IDAW-projet/backend/"
+//let backendurl = "http://localhost/imangermieux/IDAW-projet/backend/";
 
 function utilDelete(ctl) {
-    crud="suppr";
+    crud ="suppr";
     $(ctl).parents("tr").remove();
     $.ajax({
         url : backendurl + 'suppFood.php',
@@ -143,6 +143,24 @@ function utilDelete(ctl) {
         dataType : 'application/json'
     });
 }
+
+$(document).ready(function(){
+    $.ajax({
+        url: backendurl + "aliments.php",
+        method: 'POST',
+        dataType : 'json'
+    })
+        .fail(function(data) {
+          // data contient le résultat produit par le backend
+          console.log("salut fail");
+          $json = data;
+    })
+        .done(function(data) {
+            // data contient le résultat produit par le backend
+            console.log("salut done");
+            $json = data;
+  });;
+});
 
 
 $("#formutil").submit(function(){ 
