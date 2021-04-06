@@ -1,8 +1,7 @@
 
 <div class="wrapper">
-      <div class="search-input">
-        <a href="" target="_blank" hidden></a>
-        <input type="text" placeholder="Type to search..">
+      <div class="search-input"> 
+        <input type="text" placeholder="Type to search.." class="form-control" id="inputFood">
         <div class="autocom-box">
           <!-- here list are inserted from javascript -->
         </div>

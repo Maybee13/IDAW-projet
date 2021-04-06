@@ -60,7 +60,7 @@ function update() {
         crud ="ajout";
         ajoutTable();
     }
-    $("#nom").focus();
+    $("#label").focus();
 }
 
 function ajoutTable() {
@@ -144,7 +144,7 @@ function utilDelete(ctl) {
         dataType : 'application/json'
     });
 }
-
+/*
 $(document).ready(function(){
     $.ajax({
         url: backendurl + "aliments.php",
@@ -162,11 +162,11 @@ $(document).ready(function(){
             json = data;
             console.log(data);
   });;
-});
+});*/
 
 
 $("#formutil").submit(function(){ 
-    var donnees = $("#formutil").serialize();  
+    //var donnees = $("#formutil").serialize();  
     $.ajax({
         url : backendurl + 'addFood.php',
         type : 'POST',

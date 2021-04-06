@@ -14,7 +14,6 @@
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/datatables.min.js"></script>
-    <script type = "text/javascript" src="js/scriptAliments.js"></script> 
     <title>CRUD</title>
 </head>
 <body>
@@ -209,6 +208,7 @@
 </body>
   
 </html>
+<script type = "text/javascript" src="js/scriptAliments.js"></script>
 <script>
     $.ajax({
         url: backendurl + "aliments.php",

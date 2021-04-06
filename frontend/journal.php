@@ -16,9 +16,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/datatables.min.css"/>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.24/datatables.min.js"></script>
     <script type = "text/javascript" src="js/scriptJournal.js"></script> 
-    
+    <script src="js/jquery-1.11.0.min.js"></script>
     <link rel="stylesheet" href="css/searchBar.css">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>CRUD</title>
 </head>
@@ -30,8 +30,8 @@
     <?php 
         $user = $_SESSION['firstname'];
         $login = $_SESSION['login'];
-        //$user  = 'pierre.marque@etu.imt-lille-douai.fr';
     ?>
+    <script type =  "text/javascript"> login = '<?php echo "$login" ?>';</script>
         <h4>Bienvenue <?php echo $user?>!</h4>
     </div>
     <div class="container-fluid">
@@ -45,30 +45,30 @@
                 <table id="repas" class="display table table-bordered nowrap" style="width:100%">
                     <thead>
                         <tr>
+                            <!-- <th>Modifier</th> -->
                             <th>Supprimer</th>
-                            <th>Modifier</th>
                             <th>Nom du repas</th>
                             <th>Date</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php
+                    <tbody id ="TableRepas">
+                    <?php
                             $conn= mysqli_connect("localhost", "root", "", "imangermieux");
                             if($conn == false){
                                 die("ERROR: Could not connect. " . mysqli_connect_error());
                             }
-                            $sql = mysqli_query($conn,"SELECT meal.MEAL_LABEL, meal.DATE FROM meal WHERE meal.LOGIN = '${login}'");
+                            $sql = mysqli_query($conn,"SELECT meal.MEAL_LABEL, meal.DATE, meal.ID_MEAL FROM meal WHERE meal.LOGIN = '${login}'");
                             $result = mysqli_fetch_all($sql);
                             for($i=0;$i<sizeof($result);$i++){
                                 $mealLabel = $result[$i][0];
                                 $mealDate = $result[$i][1];
-                                echo "<tr><td><button type='button'
-                                        onclick='display(this)';
-                                        class='btn'
-                                        data-id=' $i '>
-                                        <i class='fas fa-edit'/>
-                                </button><td>
-                                <button type='button'
+                                // echo "<tr><td><button type='button'
+                                //         onclick='display(this)';
+                                //         class='btn'
+                                //         data-id=' $i '>
+                                //         <i class='fas fa-edit'/>
+                                // </button></td>
+                                echo"<td><button type='button'
                                         onclick='utilDelete(this);'
                                         class='btn'
                                         data-id=' $i '>
@@ -92,23 +92,21 @@
                         <form id="formutil" onsubmit="event.preventDefault();utilBuildTableRow();" autocomplete="on">
                             <div class="form-group">
                                 <label for="label"> Repas </label>
-                                <input type="text" class="form-control" id="label" placeholder="ex : Gros grec bien sale" required/>
+                                <input type="text" class="form-control" id="label" placeholder="Nom du repas" required/>
                             </div>
                             <div class="form-group">
                                 <label for="date"> Et c'était quand ce bon repas ? </label>
                                 <input type="date" class="form-control"  id="date" required/>
                             </div>
-                            <div class="form-group">
-                                <label for="date"> Choisis tes aliments </label>
-                            </div>
                             <div class="col-xs-12">
-                                <input type="submit" id="updateMealsButton" class="btn btn-primary" onclick="updateMelas();" value="Ajouter">
+                                <input type="submit" id="updateButton" class="btn btn-primary"  onclick="update();" value="Ajouter">
                             </div>
                             <br/>
-                            <div class="col-xs-12">
-                                <input type="reset"  class="btn btn-primary" onclick="updateMelas();" value="Reset">
-                            </div>
                         </form>
+                        <div class="form-group">
+                                <label for="date"> Choisis tes Ingrédients </label>
+                                <?php require_once('src/jscrud.php')?>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -117,3 +115,29 @@
     </body>
   
 </html>
+<script type = "text/javascript" src="js/scriptJournal.js"></script>
+
+<!-- Nous n'arrivons pas à récupérer un retour correct sur cette requête ci-dessous, donc obligés de communiquer avce la base dans le front. -->
+<!--<script>
+    $.ajax({
+        url: backendurl + "journal.php",
+        type : 'POST',
+        data : 'login='+login,
+        //datatType = 'json'
+        }).done(function(res) {
+            let texte=""
+            for(let i=0;i<Object.keys(res).length-1;i++){
+                                texte =""
+                                let mealLabel = res[$i][0]
+                                let mealDate = res[$i][1]
+                                let mealID  = res[$i][2]
+                                texte = "<tr><td><button type='button'onclick='display(this)';class='btn'data-id='"+mealID+" '><i class='fas fa-edit'/></button><td>"
+                                texte+="<button type='button'  onclick='utilDelete(this);'class='btn' data-id=' "+mealID+" '><i class='fas fa-trash' /></button></td>"
+                                texte+="<td>"+$mealLabel+"</td>"
+                                texte+="<td>"+$mealLabel+"</td>"
+                                texte+="</tr>"
+            }
+            $("#TableRepas").append(texte);
+            }
+        );
+</script>-->

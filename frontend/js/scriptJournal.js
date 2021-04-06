@@ -32,7 +32,7 @@ function update() {
         crud ="ajout";
         ajoutTable();
     }
-    $("#nom").focus();
+    $("#label").focus();
 }
 
 function ajoutTable() {
@@ -53,13 +53,7 @@ function updateTable(id) {
 function utilBuildTableRow(id) {
   var ret =
   "<tr>" +
-    "<td>" +
-      "<button type='button' " +
-              "onclick='display(this);' " +
-              "class='btn btn-default' " +
-              "data-id='" + id + "'>" +
-              "<i class='fas fa-edit'/>" +
-      "</button>" +
+
       "<td>" +
       "<button type='button' " +
               "onclick='utilDelete(this);' " +
@@ -90,7 +84,7 @@ function utilDelete(ctl) {
     });
 }
 
-$(document).ready(function(){
+/*$(document).ready(function(){
     $.ajax({
         url: backendurl + "journal.php",
         method: 'POST',
@@ -106,20 +100,35 @@ $(document).ready(function(){
             console.log("salut done");
             $json = data;
   });;
-});
+});*/
 
 
-$("#formutil").submit(function(){ 
-    var donnees = $("#formutil").serialize();  
+$("#formutil").submit(function(){  
     $.ajax({
         url : backendurl + 'addMeal.php',
         type : 'POST',
         //data : donnees,
         data : 'label='+ document.getElementById('label').value +
         '&date='+ document.getElementById('date').value + 
-        '&crud='+ crud +
-        +'&login ='+ $user
-        +'&ingredients='+ingredients,
+        '&crud='+ crud
+        +'&login ='+ $user,
+        // +'&food-1='+food1
+        // +'&food-2='+food2
+        // +'&food-3='+food3
+        // +'&food-4='+food4
+        // +'&food-5='+food5
+        // +'&food-6='+food6
+        // +'&food-7='+food7
+        // +'&food-8='+food8
+        // +'&food-9='+food9
+        // +'&food-10='+food10
+        // +'&food-11='+food11
+        // +'&food-12='+food12
+        // +'&food-13='+food13
+        // +'&food-14='+food14
+        // +'&food-15='+food15
+        // +'&food-16='+food16,
+        // Dans le but de renvoyer le contenu du crud "ingrédients mais je n'arrive pas à aire partir la requête"
         dataType : 'application/json'
     });
 });
