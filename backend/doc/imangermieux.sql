@@ -2,10 +2,10 @@
 -- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Apr 01, 2021 at 01:33 PM
--- Server version: 5.7.31
--- PHP Version: 7.3.21
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 06 avr. 2021 à 04:34
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `imangermieux`
+-- Base de données : `imangermieux3`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `food`
+-- Structure de la table `food`
 --
 
 DROP TABLE IF EXISTS `food`;
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `food` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3191 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `food`
+-- Déchargement des données de la table `food`
 --
 
 INSERT INTO `food` (`ID_FOOD`, `FOOD_LABEL`, `TYPE_`) VALUES
@@ -3233,21 +3233,21 @@ INSERT INTO `food` (`ID_FOOD`, `FOOD_LABEL`, `TYPE_`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `meal`
+-- Structure de la table `meal`
 --
 
 DROP TABLE IF EXISTS `meal`;
 CREATE TABLE IF NOT EXISTS `meal` (
-  `ID_MEAL` int(11) NOT NULL,
+  `ID_MEAL` int(11) NOT NULL AUTO_INCREMENT,
   `LOGIN` varchar(50) NOT NULL,
   `DATE` datetime DEFAULT NULL,
   `MEAL_LABEL` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ID_MEAL`),
   KEY `TO_EAT` (`LOGIN`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `meal`
+-- Déchargement des données de la table `meal`
 --
 
 INSERT INTO `meal` (`ID_MEAL`, `LOGIN`, `DATE`, `MEAL_LABEL`) VALUES
@@ -3275,7 +3275,7 @@ INSERT INTO `meal` (`ID_MEAL`, `LOGIN`, `DATE`, `MEAL_LABEL`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nutrient_intake`
+-- Structure de la table `nutrient_intake`
 --
 
 DROP TABLE IF EXISTS `nutrient_intake`;
@@ -3286,7 +3286,7 @@ CREATE TABLE IF NOT EXISTS `nutrient_intake` (
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `nutrient_intake`
+-- Déchargement des données de la table `nutrient_intake`
 --
 
 INSERT INTO `nutrient_intake` (`NUTRIENT_ID`, `NUTRIENT_NAME`) VALUES
@@ -3321,7 +3321,7 @@ INSERT INTO `nutrient_intake` (`NUTRIENT_ID`, `NUTRIENT_NAME`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `to_contain`
+-- Structure de la table `to_contain`
 --
 
 DROP TABLE IF EXISTS `to_contain`;
@@ -3334,7 +3334,7 @@ CREATE TABLE IF NOT EXISTS `to_contain` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `to_contain`
+-- Déchargement des données de la table `to_contain`
 --
 
 INSERT INTO `to_contain` (`ID_MEAL`, `FOOD_ID`, `QUANTITY`) VALUES
@@ -3363,7 +3363,7 @@ INSERT INTO `to_contain` (`ID_MEAL`, `FOOD_ID`, `QUANTITY`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `to_provide`
+-- Structure de la table `to_provide`
 --
 
 DROP TABLE IF EXISTS `to_provide`;
@@ -3376,7 +3376,7 @@ CREATE TABLE IF NOT EXISTS `to_provide` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `to_provide`
+-- Déchargement des données de la table `to_provide`
 --
 
 INSERT INTO `to_provide` (`FOOD_ID`, `NUTRIENT_ID`, `RATIO`) VALUES
@@ -88467,7 +88467,7 @@ INSERT INTO `to_provide` (`FOOD_ID`, `NUTRIENT_ID`, `RATIO`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Structure de la table `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -88482,7 +88482,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Déchargement des données de la table `user`
 --
 
 INSERT INTO `user` (`LOGIN`, `SURNAME`, `FIRSTNAME`, `DATE_OF_BIRTH`, `SEX`, `LVL_OF_PRACTICE`) VALUES
@@ -88517,28 +88517,28 @@ INSERT INTO `user` (`LOGIN`, `SURNAME`, `FIRSTNAME`, `DATE_OF_BIRTH`, `SEX`, `LV
 ('zouheir.touil@etu.imt-lille-douai.fr', 'Touil', 'Zouheir', '1997-04-28', 'M', 1);
 
 --
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `meal`
+-- Contraintes pour la table `meal`
 --
 ALTER TABLE `meal`
   ADD CONSTRAINT `TO_EAT` FOREIGN KEY (`LOGIN`) REFERENCES `user` (`LOGIN`);
 
 --
--- Constraints for table `to_contain`
+-- Contraintes pour la table `to_contain`
 --
 ALTER TABLE `to_contain`
-  ADD CONSTRAINT `CONTAIN_FOOD` FOREIGN KEY (`FOOD_ID`) REFERENCES `food` (`ID_FOOD`),
-  ADD CONSTRAINT `CONTAIN_MEAL` FOREIGN KEY (`ID_MEAL`) REFERENCES `meal` (`ID_MEAL`);
+  ADD CONSTRAINT `CONTAIN_FOOD` FOREIGN KEY (`FOOD_ID`) REFERENCES `food` (`ID_FOOD`) ON DELETE CASCADE,
+  ADD CONSTRAINT `CONTAIN_MEAL` FOREIGN KEY (`ID_MEAL`) REFERENCES `meal` (`ID_MEAL`) ON DELETE CASCADE;
 
 --
--- Constraints for table `to_provide`
+-- Contraintes pour la table `to_provide`
 --
 ALTER TABLE `to_provide`
-  ADD CONSTRAINT `PROVIDES_FOOD` FOREIGN KEY (`FOOD_ID`) REFERENCES `food` (`ID_FOOD`),
-  ADD CONSTRAINT `PROVIDES_NU` FOREIGN KEY (`NUTRIENT_ID`) REFERENCES `nutrient_intake` (`NUTRIENT_ID`);
+  ADD CONSTRAINT `PROVIDES_FOOD` FOREIGN KEY (`FOOD_ID`) REFERENCES `food` (`ID_FOOD`) ON DELETE CASCADE,
+  ADD CONSTRAINT `PROVIDES_NU` FOREIGN KEY (`NUTRIENT_ID`) REFERENCES `nutrient_intake` (`NUTRIENT_ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
